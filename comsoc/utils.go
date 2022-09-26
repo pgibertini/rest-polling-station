@@ -52,7 +52,7 @@ func maxCount(count Count) (bestAlts []Alternative) {
 	return
 }
 
-func checkProfileCheckDup(voteur []Alternative) error {
+func checkProfileDup(voteur []Alternative) error {
 	var j, k int
 	var alt Alternative
 
@@ -73,8 +73,11 @@ func checkProfile(prefs Profile) error {
 
 	//Regarde chaque voteur
 	for _, voteur := range prefs {
+		if len(voteur) == 0 {
+			return errors.New("Empty voter found")
+		}
 		//Regarde chaque valeur du voteur
-		dupVal = checkProfileCheckDup(voteur)
+		dupVal = checkProfileDup(voteur)
 		if dupVal != nil {
 			return dupVal
 		}
@@ -138,8 +141,6 @@ func TestUtils() {
 	fmt.Println(isPref(1, 2, prefs[2]))
 
 	fmt.Println(maxCount(count))
-
-	fmt.Println(checkProfile(prefs))
 
 	fmt.Println(checkProfileAlternative(prefs, alts))
 }
