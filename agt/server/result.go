@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"ia04/agt"
-	"ia04/comsoc"
+	"gitlab.utc.fr/pgiberti/ia04/agt"
+	"gitlab.utc.fr/pgiberti/ia04/comsoc"
 	"net/http"
 	"time"
 )

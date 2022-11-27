@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"ia04/agt/server"
+	"gitlab.utc.fr/pgiberti/ia04/agt/server"
 )
 
 func main() {

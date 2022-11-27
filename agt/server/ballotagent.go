@@ -2,7 +2,7 @@ package server
 
 import (
 	"fmt"
-	"ia04/comsoc"
+	"gitlab.utc.fr/pgiberti/ia04/comsoc"
 	"log"
 	"net/http"
 	"sync"

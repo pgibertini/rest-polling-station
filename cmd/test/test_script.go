@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"ia04/comsoc"
+	"gitlab.utc.fr/pgiberti/ia04/comsoc"
 )
 
 func main() {

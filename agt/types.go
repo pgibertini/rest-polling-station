@@ -1,7 +1,7 @@
 package agt
 
 import (
-	"ia04/comsoc"
+	"gitlab.utc.fr/pgiberti/ia04/comsoc"
 )
 
 type NewBallotRequest struct {
