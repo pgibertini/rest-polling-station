@@ -28,3 +28,4 @@ go run launch_ballotagent.go
 - Tous les votants inscrits ne sont pas obligés de voter. Le résultat final dépend d'uniquement des agents ayant voté.
 - En cas d'égalité, un *tie-break* par défaut a été mis en place : c'est le candidat au numéro le plus petit qui est élu.
 - Le `ranking` donnée par une requête `result` affiche les candidats à égalité dans un ordre aléatoire, mais forcément après les candidats avec plus de voix. *En y repensant, il aurait été plus judicieux de tenir compte de la méthode de tie-break*.
+- Le script permttant de lancer les voteurs est très basique et peu fonctionnel car nous avons réalisé le plupart de nos tests avec l'extension `RESTED` de `Mozilla Firefox`
