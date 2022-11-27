@@ -3,11 +3,8 @@ package comsoc
 import (
 	"errors"
 	"fmt"
+	"sort"
 )
-
-type Alternative int
-type Profile [][]Alternative
-type Count map[Alternative]int
 
 // Renvoie l'indice ou se trouve alt dans prefs
 func rank(alt Alternative, prefs []Alternative) (int, error) {
@@ -17,6 +14,29 @@ func rank(alt Alternative, prefs []Alternative) (int, error) {
 		}
 	}
 	return 0, errors.New("alt not found in given prefs")
+}
+
+// Ranking trie un décompte du plus de voix au moins de voix
+func Ranking(count Count) (alts []Alternative) {
+	type kv struct {
+		Key   Alternative
+		Value int
+	}
+
+	var ss []kv
+	for k, v := range count {
+		ss = append(ss, kv{k, v})
+	}
+
+	sort.Slice(ss, func(i, j int) bool {
+		return ss[i].Value > ss[j].Value
+	})
+
+	for _, kv := range ss {
+		alts = append(alts, kv.Key)
+	}
+
+	return
 }
 
 // Renvoie vrai ssi alt1 est préférée à alt2
@@ -68,15 +88,15 @@ func checkProfileDup(voteur []Alternative) error {
 }
 
 // Vérifie que le profil donné n'a pas de valeur en double dans un voteur
-func checkProfile(prefs Profile) error {
+func checkProfile(p Profile) error {
 	var dupVal error
 
-	//Regarde chaque voteur
-	for _, voteur := range prefs {
+	// Regarde chaque voteur
+	for _, voteur := range p {
 		if len(voteur) == 0 {
 			return errors.New("Empty voter found")
 		}
-		//Regarde chaque valeur du voteur
+		// Regarde chaque valeur du voteur
 		dupVal = checkProfileDup(voteur)
 		if dupVal != nil {
 			return dupVal
@@ -87,6 +107,10 @@ func checkProfile(prefs Profile) error {
 
 func checkProfileAlternativeCompareAlt(voteur []Alternative, alts []Alternative) error {
 	var isInAlts bool
+	if len(voteur) != len(alts) {
+		return errors.New("incorrect number of alternative")
+	}
+
 	for _, altvoteur := range voteur {
 		//Compare les valeurs du voteur aux alternatives
 		isInAlts = false
@@ -123,6 +147,15 @@ func checkProfileAlternative(prefs Profile, alts []Alternative) error {
 		}
 	}
 	return nil
+}
+
+func CheckVoteAlternative(vote []Alternative, alts []Alternative) (err error) {
+	err = checkProfileDup(vote)
+	if err != nil {
+		return
+	}
+	err = checkProfileAlternativeCompareAlt(vote, alts)
+	return
 }
 
 func TestUtils() {
