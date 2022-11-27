@@ -41,6 +41,7 @@ func (va *VoterAgent) Vote(prefs []comsoc.Alternative, options []int) {
 	}
 	if resp.StatusCode != http.StatusOK {
 		err = fmt.Errorf("[%d] %s", resp.StatusCode, resp.Status)
+		fmt.Println(err)
 		return
 	}
 

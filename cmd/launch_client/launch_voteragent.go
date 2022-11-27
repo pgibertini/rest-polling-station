@@ -40,7 +40,7 @@ func createBallot() {
 	if err != nil {
 		return
 	}
-	if resp.StatusCode != http.StatusOK {
+	if resp.StatusCode != http.StatusCreated {
 		err = fmt.Errorf("[%d] %s", resp.StatusCode, resp.Status)
 		return
 	}
