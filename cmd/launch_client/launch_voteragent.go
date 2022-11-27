@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"ia04/agt"
-	"ia04/agt/client"
-	"ia04/comsoc"
+	"gitlab.utc.fr/pgiberti/ia04/agt"
+	"gitlab.utc.fr/pgiberti/ia04/agt/client"
+	"gitlab.utc.fr/pgiberti/ia04/comsoc"
 	"math/rand"
 	"net/http"
 	"time"
@@ -40,8 +40,8 @@ func createBallot() {
 	if err != nil {
 		return
 	}
-	if resp.StatusCode != http.St {
-		err = fmt.Errorf("[%d] %s", resp.StatusCode, resp.StatusCreated)
+	if resp.StatusCode != http.StatusCreated {
+		err = fmt.Errorf("[%d] %s", resp.StatusCode, resp.Status)
 		return
 	}
 
