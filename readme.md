@@ -5,7 +5,11 @@
 ### Utilisation
 Pour installer le projet :
 ```
-go install ...
+go install https://gitlab.utc.fr/pgiberti/ia04
+```
+ou 
+```
+git clone https://gitlab.utc.fr/pgiberti/ia04
 ```
 
 Pour lancer le serveur de vote :
