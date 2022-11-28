@@ -10,7 +10,7 @@
 
 
 #### 2. avec `git`
-`git clone https://gitlab.utc.fr/pgiberti/ia04` pour cloner le dépôt
+`git clone https://gitlab.utc.fr/pgiberti/ia04.git` pour cloner le dépôt
 
 `go run launch_ballotagent.go` pour lancer le serveur sur le port local 8080
 
