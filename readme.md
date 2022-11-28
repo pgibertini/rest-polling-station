@@ -3,21 +3,17 @@
 ***
 
 ### Utilisation
-Pour installer le projet :
-```
-go get gitlab.utc.fr/pgiberti/ia04
-go install gitlab.utc.fr/pgiberti/ia04
-```
+#### 1. avec `go install`
+`go install -v gitlab.utc.fr/pgiberti/ia04@latest` pour installer
 
-ou 
-```
-git clone https://gitlab.utc.fr/pgiberti/ia04
-```
+`$GOPATH/bin/ia04` pour lancer le serveur sur le port local 8080
 
-Pour lancer le serveur de vote :
-```
-go run launch_ballotagent.go 
-```
+
+#### 2. avec `git`
+`git clone https://gitlab.utc.fr/pgiberti/ia04` pour cloner le dépôt
+
+`go run launch_ballotagent.go` pour lancer le serveur sur le port local 8080
+
 
 ### Travail effectué
 - Implémentation complète de l'API demandée, avec toutes les vérifications des requêtes nécessaires
