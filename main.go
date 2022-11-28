@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"gitlab.utc.fr/pgiberti/ia04/agt/server"
+	srv "gitlab.utc.fr/pgiberti/ia04/agt/server"
 )
 
 func main() {
-	serv := server.NewBallotAgent(":8080")
-	serv.Start()
+	server := srv.NewBallotAgent(":8080")
+	server.Start()
 	fmt.Scanln()
 }
