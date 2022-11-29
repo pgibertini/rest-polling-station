@@ -1,3 +1,3 @@
-module gitlab.utc.fr/pgiberti/ia04
+module github.com/pgibertini/rest-polling-station
 
 go 1.19

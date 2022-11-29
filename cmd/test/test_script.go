@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"gitlab.utc.fr/pgiberti/ia04/comsoc"
+	"github.com/pgibertini/rest-polling-station/comsoc"
 )
 
 func main() {

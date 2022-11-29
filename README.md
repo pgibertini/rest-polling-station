@@ -2,17 +2,17 @@
 ### Pierre Gibertini, Amaury Michel
 ***
 
-### Utilisation
-#### 1. avec `go install`
-`go install -v gitlab.utc.fr/pgiberti/ia04@latest` pour installer
+### Installation
+#### 1. with `go install`
+`go install -v github.com/pgibertini/rest-polling-station@latest` to install 
 
-`$GOPATH/bin/ia04` pour lancer le serveur sur le port local 8080
+`$GOPATH/bin/ia04` to launch the server on local port 8080
 
 
-#### 2. avec `git`
-`git clone https://gitlab.utc.fr/pgiberti/ia04.git` pour cloner le dépôt
+#### 2. with `git`
+`git clone https://github.com/pgibertini/rest-polling-station.git` to clone repo
 
-`go run launch_ballotagent.go` pour lancer le serveur sur le port local 8080
+`go run launch_ballotagent.go` to launch the server on local port 8080
 
 
 ### Travail effectué

@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	srv "gitlab.utc.fr/pgiberti/ia04/agt/server"
+	srv "github.com/pgibertini/rest-polling-station/agt/server"
 )
 
 func main() {

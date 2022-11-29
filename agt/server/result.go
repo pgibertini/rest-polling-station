@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
-	"gitlab.utc.fr/pgiberti/ia04/agt"
-	"gitlab.utc.fr/pgiberti/ia04/comsoc"
+	"github.com/pgibertini/rest-polling-station/agt"
+	"github.com/pgibertini/rest-polling-station/comsoc"
 	"net/http"
 	"time"
 )
