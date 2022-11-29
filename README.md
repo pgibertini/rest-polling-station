@@ -1,5 +1,7 @@
 # Online polling station
 ### Pierre Gibertini, Amaury Michel
+
+Online polling station using Go and REST server.
 ***
 
 ### Installation
@@ -15,15 +17,15 @@
 `go run launch_ballotagent.go` to launch the server on local port 8080
 
 
-### Travail effectué
-- Implémentation complète de l'API demandée, avec toutes les vérifications des requêtes nécessaires
-- Implémentation des méthodes de vote suivantes : `majority`, `borda` et `approval`
+### Work done
+- Complete implementation of the [requested API](https://gitlab.utc.fr/lagruesy/ia04/-/blob/main/docs/sujets/activit%C3%A9s/serveur-vote/api.md), avec toutes les vérifications des requêtes nécessaires
+- Implementation of following vote rules : `majority`, `borda` and `approval`
 
 
-### Choix d'implémentation
-- Une châine de caractère vide (`""`) dans le champ `deadline` lors d'une requête `/new_ballot` est accepté, afin de réaliser plus aisément des tests. Dans ce cas-ci, on peut accéder au résultat à n'importe quel moment, et continuer de voter après avoir accédé aux résultats.
-- Si la date donnée pour le champ `deadline` lors d'une requête `/new_ballot` est antérieure à `date.Now()`, le ballot n'est pas créé.
-- Tous les votants inscrits ne sont pas obligés de voter. Le résultat final dépend d'uniquement des agents ayant voté.
-- En cas d'égalité, un *tie-break* par défaut a été mis en place : c'est le candidat au numéro le plus petit qui est élu.
-- Le `ranking` donnée par une requête `result` affiche les candidats à égalité dans un ordre aléatoire, mais forcément après les candidats avec plus de voix. *En y repensant, il aurait été plus judicieux de tenir compte de la méthode de tie-break*.
-- Le script permttant de lancer les voteurs est très basique et peu fonctionnel car nous avons réalisé le plupart de nos tests avec l'extension `RESTED` de `Mozilla Firefox`
+### Implementation choices
+- And empty string (`""`) in the field `deadline` for a request `/new_ballot` is accepted, in order to do testing. In this case, you can access the results at any time, and continue voting after accessing the results.
+- If the date given for the `deadline` field in a `/new_ballot` query is earlier than `date.Now()`, the ballot is not created.
+- Not all registered voters are required to vote. The final result depends on only those agents who voted.
+- In case of a tie, a default *tie-break* has been implemented: the candidate with the lowest number is elected.
+- The `ranking` given by a `result` query displays the tied candidates in a random order, but necessarily after the candidates with more votes. *On second thought, it would have been better to take into account the tie-break method*.
+- The script allowing to launch the voters is very basic and not very functional because we realized most of our tests with the extension `RESTED` of `Mozilla Firefox`.
