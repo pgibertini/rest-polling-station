@@ -1,5 +1,5 @@
-# Service de vote AI30 - IA04
-### Amaury Michel, Pierre Gibertini
+# Online polling station
+### Pierre Gibertini, Amaury Michel
 ***
 
 ### Utilisation
