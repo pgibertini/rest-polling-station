@@ -18,7 +18,7 @@ Online polling station using Go and REST server.
 
 
 ### Work done
-- Complete implementation of the [requested API](https://gitlab.utc.fr/lagruesy/ia04/-/blob/main/docs/sujets/activit%C3%A9s/serveur-vote/api.md), avec toutes les vérifications des requêtes nécessaires
+- Complete implementation of the [requested API](https://gitlab.utc.fr/lagruesy/ia04/-/blob/main/docs/sujets/activit%C3%A9s/serveur-vote/api.md), with all the necessary verifications
 - Implementation of following vote rules : `majority`, `borda` and `approval`
 
 
