@@ -16,7 +16,7 @@ Online polling station using Go and REST server.
 #### 2. with `git`
 `git clone https://github.com/pgibertini/rest-polling-station.git` to clone repo
 
-`go run launch_ballotagent.go` to launch the server on local port `8080`
+`go run main.go` to launch the server on local port `8080`
 
 
 ## Work done
@@ -40,74 +40,74 @@ Online polling station using Go and REST server.
 - Request : `POST`
 - `JSON` object sent
 
-| property  | type        | example of possible values                                    |
-|------------|-------------|-------------------------------------------------------------------|
+| property    | type           | example of possible values                                    |
+|-------------|----------------|---------------------------------------------------------------|
 | `rule`      | `string`       | `"majority"`,`"borda"`, `"approval"`, `"stv"`, `"kemeny"`,... |
-| `deadline`  | `string`       | `"Tue Nov 10 23:00:00 UTC 2009"`                               |
-| `voter-ids` | `[string,...]` | `["ag_id1", "ag_id2", "ag_id3"]`                                       |
-| `#alts`     | `int`          | `12` |   
+| `deadline`  | `string`       | `"Tue Nov 10 23:00:00 UTC 2009"`                              |
+| `voter-ids` | `[string,...]` | `["ag_id1", "ag_id2", "ag_id3"]`                              |
+| `#alts`     | `int`          | `12`                                                          |   
 
 *Notes:* the deadline represents the end date of the vote. For this, use the standard `Go` library, in particular the `time` package. The `#alts` property represents the number of alternatives, numbered from 1 to `#alts`.
 
 - return code
 
-| return code | meaning |
-|-------------|---------------|
-| `201`       | ballot created    |
-| `400`       | bad request   |
-| `501` 	  | not implemented |
+| return code | meaning         |
+|-------------|-----------------|
+| `201`       | ballot created  |
+| `400`       | bad request     |
+| `501` 	     | not implemented |
 
 - `JSON` object returned (si `201`)
 
-| property  | type | example of possible values                              |
-|------------|-------------|-----------------------------------------------------|
-| `ballot-id`    | `string` | `"vote12"` |
+| property    | type     | example of possible values |
+|-------------|----------|----------------------------|
+| `ballot-id` | `string` | `"vote12"`                 |
 
 ### Command `/vote`
 
 - Request : `POST`
 - `JSON` object sent
 
-| property   | type | example of possible values  |
-|------------|-------------|------------------------|
-| `agent-id` | `string` | `"ag_id1"` |
-| `vote-id`  | `string` | `"vote12"` |
-| `prefs`    | `[int,...]` | `[1, 2, 4, 3]` |
-| `options`  | `[int,...]` | `[3]` |
+| property   | type        | example of possible values |
+|------------|-------------|----------------------------|
+| `agent-id` | `string`    | `"ag_id1"`                 |
+| `vote-id`  | `string`    | `"vote12"`                 |
+| `prefs`    | `[int,...]` | `[1, 2, 4, 3]`             |
+| `options`  | `[int,...]` | `[3]`                      |
 
 *Note:* `options` is optional and allows additional information to be passed (e.g. approval threshold)
 
 - return code
 
-| return code | meaning |
-|-------------|---------------|
-| `200`       | vote taken into account  |
-| `400`       | bad request          |
-| `403`       |	vote already taken   |
-| `501` 	    | Not Implemented      |
-| `503`       | the deadline has passed |
+| return code | meaning                 |
+|-------------|-------------------------|
+| `200`       | vote taken into account |
+| `400`       | bad request             |
+| `403`       | 	vote already taken     |
+| `501` 	     | Not Implemented         |
+| `503`       | the deadline has passed |
 
 ### Commande `/result`
 
 - Request : `POST`
 - `JSON` object sent
 
-| property  | type | example of possible values                                 |
-|------------|-------------|-----------------------------------------------------|
-| `ballot-id`    | `string` | `"vote12"` |
+| property    | type     | example of possible values |
+|-------------|----------|----------------------------|
+| `ballot-id` | `string` | `"vote12"`                 |
 
 
 - return code
 
 | return code | meaning   |
-|-------------|-----------------|
-| `200`       | OK              |
-| `425`       | Too early       |
-| `404`       |	Not Found       |
+|-------------|-----------|
+| `200`       | OK        |
+| `425`       | Too early |
+| `404`       | Not Found |
 
 - `JSON` object returned (if `200`)
 
-| property   | type | example of possible values  |
-|------------|-------------|------------------------|
-| `winner`   | `int`       | `4`                    |
-| `ranking`  | `[int,...]` | `[2, 1, 4, 3]`         |
+| property  | type        | example of possible values |
+|-----------|-------------|----------------------------|
+| `winner`  | `int`       | `4`                        |
+| `ranking` | `[int,...]` | `[2, 1, 4, 3]`             |
