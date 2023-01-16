@@ -75,7 +75,7 @@ This project was realized in the context of the IA04 course "Multi-agent systems
 | `prefs`    | `[int,...]` | `[1, 2, 4, 3]` |
 | `options`  | `[int,...]` | `[3]` |
 
-*Note: *`options` is optional and allows additional information to be passed (e.g. approval threshold)
+*Note:* `options` is optional and allows additional information to be passed (e.g. approval threshold)
 
 - return code
 
