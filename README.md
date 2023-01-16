@@ -2,6 +2,7 @@
 ### Pierre Gibertini, Amaury Michel
 
 Online polling station using Go and REST server.
+
 This project was realized in the context of the IA04 course "Multi-agent systems" at the University of Technology of Compiègne (France).
 
 ***
